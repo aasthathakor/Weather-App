@@ -1,19 +1,86 @@
-.weather{
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.weather {
     place-self: center;
     padding: 40px;
     border-radius: 10px;
-    background-image: linear-gradient(45deg, #2f4680, #500ae4);
+    background-image: linear-gradient(45deg, #1d3165, #1262d3);
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 400px; 
+    width: 100%; 
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: center; /* Ensure text is centered */
 }
-.search-bar{
+
+.weather-icon {
+    width: 120px; 
+    margin: 20px 0;
+}
+
+.temperature {
+    font-size: 64px;
+    line-height: 1;
+    text-align: center; 
+    font-weight: bold; /* New addition for better emphasis */
+}
+
+.location {
+    font-size: 28px;
+    text-align: center; 
+}
+
+.description {
+    font-size: 20px;
+    text-transform: capitalize; /* Makes first letter uppercase */
+    margin-bottom: 10px; /* Adds space below the description */
+}
+
+.weather-data {
+    width: 100%;
+    margin-top: 40px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; 
+    flex-wrap: wrap; 
+}
+
+.weather-data .col {
     display: flex;
     align-items: center;
     gap: 12px;
+    font-size: 18px; 
+    flex: 1 1 45%; 
 }
-.search-bar input{
+
+.weather-data .col span {
+    display: block;
+    font-size: 16px;
+}
+
+.weather-data .col img {
+    width: 26px;
+    margin-top: 10px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%; 
+}
+
+.search-bar input {
     height: 50px;
+    width: 100%; 
     border: none;
     outline: none;
     border-radius: 40px;
@@ -22,45 +89,104 @@
     background: #ebfffc;
     font-size: 18px;
 }
-.search-bar img{
+
+.search-bar img {
     width: 50px;
+    height: 50px;
     padding: 15px;
     border-radius: 50px;
     background: #ebfffc;
     cursor: pointer;
-}
-.weather-icon{
-    width: 150px;
-    margin: 30px 0;
-}
-.temperature{
-    color: #fff;
-    font-size: 80px;
-    line-height: 1;
-}
-.location{
-    color: #fff;
-    font-size: 40px;
-}
-.weather-data{
-    width: 100%;
-    margin-top: 40px;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-}
-.weather-data .col{
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 22px;
+    transition: transform 0.2s ease-in-out;
 }
 
-.weather-data .col span{
-    display: block;
-    font-size: 16px;
+.search-bar img:hover {
+    transform: scale(1.1);
 }
-.weather-data .col img{
-    width: 26px;
-    margin-top: 10px;
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded button */
+    margin-top: 20px; /* Space between button and weather info */
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.loading {
+    font-size: 24px;
+    color: #fff;
+}
+
+@media (max-width: 900px) { 
+    .weather {
+        max-width: 90%; 
+        padding: 20px;
+    }
+
+    .temperature {
+        font-size: 48px; 
+    }
+
+    .location {
+        font-size: 24px; 
+    }
+
+    .weather-icon {
+        width: 100px;
+    }
+
+    .weather-data .col {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) { 
+    .weather {
+        padding: 20px;
+    }
+
+    .temperature {
+        font-size: 40px; 
+    }
+
+    .location {
+        font-size: 20px; 
+    }
+
+    .search-bar img {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+    }
+
+    .search-bar input {
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .weather-icon {
+        width: 80px;
+    }
+
+    .weather-data {
+        flex-direction: column; 
+    }
+
+    .weather-data .col {
+        font-size: 14px;
+        flex: 1 1 100%; 
+        justify-content: space-between; 
+    }
+
+    .weather-data .col img {
+        width: 20px;
+    }
 }
